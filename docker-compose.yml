@@ -1,0 +1,22 @@
+# Use postgres/example user/password credentials
+version: '3.9'
+services:
+  postgres:
+    image: postgres
+    restart: always
+    env_file:
+      # configure Postgres
+      - postgres.env
+    volumes:
+      # persist data even if the container shuts down
+      - ./_postgresql-data:/var/lib/postgresql/data/
+    ports:
+      # disable this if you don't wish to access Postgres from the docker host, port 15432
+      - "15432:5432"
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      # disable this if you don't wish to access the service on docker host, port 18080
+      - 18080:8080
