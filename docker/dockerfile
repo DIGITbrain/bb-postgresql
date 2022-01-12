@@ -1,0 +1,11 @@
+# docker build -t postgres:14.1 .
+# docker run -d --name postgres -e POSTGRES_DB=mydatabase -e POSTGRES_USER=mydatabaseuser -e POSTGRES_PASSWORD=mydatabasepassword -p 5432:5432 postgres:14.1 -c ssl=on -c ssl_cert_file=/etc/certs/server-cert.pem -c ssl_key_file=/etc/certs/server-key.pem -c ssl_ca_file=/etc/certs/ca.pem
+
+FROM postgres:14.1
+
+RUN mkdir -p /etc/certs
+COPY ./certificates/ca.pem /etc/certs/ca.pem
+COPY ./certificates/server-key.pem /etc/certs/server-key.pem
+COPY ./certificates/server-cert.pem /etc/certs/server-cert.pem
+RUN chmod 600 /etc/certs/*
+RUN chown postgres:postgres /etc/certs/*
