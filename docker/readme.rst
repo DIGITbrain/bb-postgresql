@@ -20,7 +20,7 @@ Pre-requisites
 * access to DIGITbrain private docker repo (username, password) to pull the image:
   
   - ``docker login dbs-container-repo.emgora.eu``
-  - ``docker pull dbs-container-repo.emgora.eu/postgresql:14.1``
+  - ``docker pull dbs-container-repo.emgora.eu/postgres:14.1``
 
 Usage
 =====
