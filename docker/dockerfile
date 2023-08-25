@@ -1,7 +1,7 @@
-# docker build -t postgres:14.1 .
+# docker build -t postgres:15 .
 # docker run -d --name postgres -e POSTGRES_DB=mydatabase -e POSTGRES_USER=mydatabaseuser -e POSTGRES_PASSWORD=mydatabasepassword -p 5432:5432 postgres:14.1 -c ssl=on -c ssl_cert_file=/etc/certs/server-cert.pem -c ssl_key_file=/etc/certs/server-key.pem -c ssl_ca_file=/etc/certs/ca.pem
 
-FROM postgres:14.1
+FROM postgres:15
 
 RUN mkdir -p /etc/certs
 COPY ./certificates/ca.pem /etc/certs/ca.pem

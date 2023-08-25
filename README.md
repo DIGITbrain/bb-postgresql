@@ -14,7 +14,7 @@ PostgreSQL License (https://www.postgresql.org/about/licence)
 
 ## Version
 
-13.3
+15.x
 
 ## Description
 
